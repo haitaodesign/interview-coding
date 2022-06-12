@@ -1,6 +1,6 @@
 /**
  * 二维数组中，每个数字相加的和
- * @param {Array} array 二维数组
+ * @param {Array<Array<number>>} array 二维数组
  * @returns number
  */
 var twoDimensionalSum = function (array) {
