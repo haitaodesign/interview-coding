@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "面试编程题环境搭建以及练习仓库",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "vitest",
     "coverage": "vitest run --coverage"
@@ -22,5 +21,10 @@
   "devDependencies": {
     "c8": "^7.11.3",
     "vitest": "^0.14.2"
+  },
+  "dependencies": {
+    "@types/node": "^17.0.42",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
   }
 }
