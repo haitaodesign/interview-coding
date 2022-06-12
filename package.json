@@ -1,0 +1,20 @@
+{
+  "name": "interview-coding",
+  "version": "1.0.0",
+  "description": "面试编程题环境搭建以及练习仓库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haitaodesign/interview-coding.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haitaodesign/interview-coding/issues"
+  },
+  "homepage": "https://github.com/haitaodesign/interview-coding#readme"
+}
