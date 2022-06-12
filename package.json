@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "面试编程题环境搭建以及练习仓库",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "vitest",
     "coverage": "vitest run --coverage"
