@@ -3,11 +3,11 @@
  * @param {Array} array 二维数组
  * @returns number
  */
-const twoDimensionalSum = (array: Array<any>) => {
-    var sum = 0
-    var oneArray: Array<number> = []
+const twoDimensionalSum = (array: Array<Array<number>>) => {
+    let sum = 0
+    let oneArray: Array<number> = []
     // 数组降维
-    array.map((item)=>{
+    array.map((item: Array<number>)=>{
         oneArray = oneArray.concat(item)
     })
     // 求和
