@@ -17,5 +17,5 @@ var twoDimensionalSum = function (array) {
     return sum
 }
 
-module.export = twoDimensionalSum
+export default twoDimensionalSum
 
