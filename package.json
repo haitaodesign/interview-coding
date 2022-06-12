@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/haitaodesign/interview-coding#readme",
   "devDependencies": {
+    "c8": "^7.11.3",
     "vitest": "^0.14.2"
   }
 }
