@@ -136,3 +136,59 @@ function mergeArray (arrayOne, arrayTwo) {
         return res.concat(arrayTwo.slice(j))
     }
 }
+
+/**
+ * 快速排序
+ * @param {Array<number>} array 
+ * @param {number} left 
+ * @param {number} right 
+ * @returns 
+ */
+export function quickSort (array, left = 0, right = array.length - 1) {
+    if (array.length > 1) {
+        const lineIndex = partition(array, left, right)
+        if (left < lineIndex - 1) {
+            quickSort(array, left, lineIndex - 1)
+        }
+        if (lineIndex < right) {
+            quickSort(array, lineIndex, right)
+        }
+    }
+    return array 
+}
+
+/**
+ * 以基准值为轴心，划分左右子数组
+ * @param {Array<number>} array 
+ * @param {number} left 
+ * @param {number} right 
+ * @returns 
+ */
+function partition (array, left, right) {
+    let pivotValue = array[Math.floor(left + (right - left) / 2)]
+    let i = left
+    let j = right
+    while(i<=j) {
+        while(array[i] < pivotValue) {
+            i++
+        }
+        while(array[j] > pivotValue) {
+            j++
+        }
+        if (i<=j) {
+            swap(array, i, j)
+            i++
+            j--
+        }
+    }
+    return i
+}
+/**
+ * 数组交换
+ * @param {Array<number>} array 
+ * @param {*} i 
+ * @param {*} j 
+ */
+function swap (array, i, j) {
+    [array[i], array[j]] = [array[j], array[i]]
+}
