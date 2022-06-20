@@ -92,3 +92,47 @@ export function insertSort (array) {
     }
     return array
 }
+/**
+ * 归并排序
+ * @param {Array<number>} array 
+ * @returns Array<number>
+ */
+export function mergeSort (array) {
+    const len = array.length
+    if (len <= 1) {
+        return array
+    }
+    const middle = Math.floor(len / 2)
+    const leftArray = mergeSort(array.slice(0, middle))
+    const rightArray = mergeSort(array.slice(middle, len))
+    array = mergeArray(leftArray, rightArray)
+    return array
+}
+
+/**
+ * 合并两个数组
+ * @param {Array<number>} arrayOne 
+ * @param {Array<number>} arrayTwo 
+ * @returns Array<number>
+ */
+function mergeArray (arrayOne, arrayTwo) {
+    let i = 0, j = 0
+    const res = []
+    const lengthOne = arrayOne.length
+    const lengthTwo = arrayTwo.length
+    while (i < lengthOne && j < lengthTwo) {
+        if (arrayOne[i] < arrayTwo[j]) {
+            res.push(arrayOne[i])
+            i++
+        } else {
+            res.push(arrayTwo[j])
+            j++
+        }
+    }
+   
+    if (i < lengthOne) {
+        return res.concat(arrayOne.slice(i))
+    } else {
+        return res.concat(arrayTwo.slice(j))
+    }
+}
