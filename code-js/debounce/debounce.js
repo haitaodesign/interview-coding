@@ -8,17 +8,25 @@ function getUserAction(e) {
 };
 
 
-function debounce(func, wait) {
+function debounce(func, wait, immediate) {
     var timeout;
     return function () {
         var that = this
         var args = arguments
-        clearTimeout(timeout)
-        timeout = setTimeout(function () {
-            func.apply(that, args)
-        }, wait);
+        if (timeout) clearTimeout(timeout)
+        if (immediate) {
+            var callNow = !timeout
+            timeout = setTimeout(() => {
+                timeout = null
+            }, wait);
+            if (callNow) func.apply(that, args)
+        } else {
+            timeout = setTimeout(function () {
+                func.apply(that, args)
+            }, wait);
+        }
     }
 }
-container.onmousemove = debounce(getUserAction, 1000);
+container.onmousemove = debounce(getUserAction, 1000, true);
 
 // export default debounce
