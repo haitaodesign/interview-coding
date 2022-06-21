@@ -38,6 +38,40 @@ function throttle2 (func, wait) {
     } 
 }
 
+/**
+ * 节流函数，定时器与时间戳合并版本
+ * @param {Function} func 
+ * @param {number} wait 
+ * @returns Function
+ */
+function throttle3 (func, wait) {
+    var timeout, context, args
+    var previous = 0
+
+    var later = function () {
+        previous = +new Date()
+        timeout = null
+        func.apply(context, args)
+    }
+    var throttled = function () {
+        var currentTime = +new Date()
+        var remaining = wait - (currentTime - previous)
+        context = this
+        args = arguments
+        if (remaining <= 0 || remaining > wait) {
+            if (timeout) {
+                clearTimeout(timeout)
+                timeout = null
+            }
+            previous = currentTime
+            func.apply(context, args)
+        } else if (!timeout) {
+            timeout = setTimeout(later, remaining);
+        }
+    }
+    return throttled
+}
+
 // 测试用例
 var count = 1;
 var container = document.getElementById('container');
@@ -48,4 +82,4 @@ function getUserAction(e) {
     container.innerHTML = count++;
 };
 
-container.onmousemove = throttle2(getUserAction, 3000);
+container.onmousemove = throttle3(getUserAction, 1000);
