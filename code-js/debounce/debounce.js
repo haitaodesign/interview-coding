@@ -9,7 +9,7 @@ function getUserAction(e) {
 
 
 function debounce(func, wait, immediate) {
-    var timeout;
+    var timeout, result;
     return function () {
         var that = this
         var args = arguments
@@ -19,7 +19,7 @@ function debounce(func, wait, immediate) {
             timeout = setTimeout(() => {
                 timeout = null
             }, wait);
-            if (callNow) func.apply(that, args)
+            if (callNow) result = func.apply(that, args)
         } else {
             timeout = setTimeout(function () {
                 func.apply(that, args)
